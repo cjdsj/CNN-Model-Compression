@@ -43,3 +43,6 @@ Finally, the model compression result is shown below:
 - X. Jin, B. Peng, Y. Wu, Y. Liu, J. Liu, D. Liang, J. Yan, and X. Hu, “Knowledge distillation via route constrained optimization,” ICCV, 2019. https://arxiv.org/pdf/1904.05100.pdf
 - Wang, Lin, and Kuk-Jin Yoon. "Knowledge distillation and student-teacher learning for visual intelligence: A review and new outlooks." IEEE Transactions on Pattern Analysis and Machine Intelligence (2021). https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9340578
 - Ahn, Sungsoo, et al. "Variational information distillation for knowledge transfer." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019. https://openaccess.thecvf.com/content_CVPR_2019/papers/Ahn_Variational_Information_Distillation_for_Knowledge_Transfer_CVPR_2019_paper.pdf 
+
+
+
