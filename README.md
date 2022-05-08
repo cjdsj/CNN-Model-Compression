@@ -1,10 +1,9 @@
 ## CNN Model Compression with Pruning & Knowledge Distillation
-
 In this project we combined weight pruning and knowledge distillation techniques to conduct model compression on ResNet50 model. The experimental task is image classification with CIFAR10 dataset. Our final result achieved a compression rate of 12.82 with 77.44% validation accuracy. 
 
 ### Pruning
 
-In the first step, we pruned the pretrained ResNet50 through weight pruning. We conducted iterative pruning for 15 iterations. In each iteration we first prune the convolutional layers based on Apoz scores, then finetune the pruned model to convergence. The results of iterative pruning is shown below:
+In the first step, we pruned the pretrained ResNet50 through weight pruning. We conducted iterative pruning for 15 iterations. In each iteration we first prune the convolutional layers based on Apoz scores, then finetune the pruned model to convergence. The results of iterative pruning is shown below:   
 ![Iterative Pruning Result](./images/pruning_result.png)
 
 Number of Neurons pruned in each layer over iterations:
@@ -12,7 +11,8 @@ Number of Neurons pruned in each layer over iterations:
 
 ### Knowledge Distillation
 
-To further compress the model, we train a small student ResNet50 network through knowledge distillation to learn from the teacher network, which is the pruned model in step 1. The training loss is composed of three parts: backbone loss, intermediate layer loss, and adversarial training loss. The loss function is $$L = \lambda_1L_{backbone} + \lambda_2L_{intermediate} + \lambda_3L_{adversarial}$$
+To further compress the model, we train a small student ResNet50 network through knowledge distillation to learn from the teacher network, which is the pruned model in step 1. The training loss is composed of three parts: backbone loss, intermediate layer loss, and adversarial training loss. The loss function is 
+$$L = \lambda_1L_{backbone} + \lambda_2L_{intermediate} + \lambda_3L_{adversarial}$$
 where $\lambda_1, \lambda_2, \lambda_3$ are hyperparameters that can be tuned. The experimental results are shown below: 
 ![Knowledge Distillation Result](./images/accuracy_result.png)
 
@@ -31,6 +31,11 @@ Finally, the model compression result is shown below:
 
 
 ### Example Commands
+- `python train_base_model.py --save_folder=./model/base_model --model_path=./model/pretrained_resnet50.h5`
+- `python prune_model.py --prune_iter=15`
+- `python knowledge_distillation.py --root_folder=./model/pruned_model/iter15 --lambda1=0.7, --lambda2=0.3, --lambda3=0.2, --regressor_name=conv1x1`
+- `python evaluate_model.py --model_path=./model/base_model/model.h5`
+- `python plot_train_history.py --history_path=./model/prued_model/iter1/history.json`
 
 
 ### References
