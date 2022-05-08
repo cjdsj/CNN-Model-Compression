@@ -11,9 +11,8 @@ Number of Neurons pruned in each layer over iterations:
 
 ### Knowledge Distillation
 
-To further compress the model, we train a small student ResNet50 network through knowledge distillation to learn from the teacher network, which is the pruned model in step 1. The training loss is composed of three parts: backbone loss, intermediate layer loss, and adversarial training loss. The loss function is 
-$$L = \lambda_1L_{backbone} + \lambda_2L_{intermediate} + \lambda_3L_{adversarial}$$
-where $\lambda_1, \lambda_2, \lambda_3$ are hyperparameters that can be tuned. The experimental results are shown below: 
+To further compress the model, we train a small student ResNet50 network through knowledge distillation to learn from the teacher network, which is the pruned model in step 1. The training loss is composed of three parts: backbone loss, intermediate layer loss, and adversarial training loss. The loss function is ![](http://latex.codecogs.com/svg.latex?L=\\lambda_1L_{backbone}+\\lambda_2L_{intermediate}+\\lambda_3L_{adversarial}) where 
+![](http://latex.codecogs.com/svg.latex?\\lambda_1,\\lambda_2,\\lambda_3) are hyperparameters that can be tuned. The experimental results are shown below:  
 ![Knowledge Distillation Result](./images/accuracy_result.png)
 
 Finally, the model compression result is shown below:
@@ -44,4 +43,3 @@ Finally, the model compression result is shown below:
 - X. Jin, B. Peng, Y. Wu, Y. Liu, J. Liu, D. Liang, J. Yan, and X. Hu, “Knowledge distillation via route constrained optimization,” ICCV, 2019. https://arxiv.org/pdf/1904.05100.pdf
 - Wang, Lin, and Kuk-Jin Yoon. "Knowledge distillation and student-teacher learning for visual intelligence: A review and new outlooks." IEEE Transactions on Pattern Analysis and Machine Intelligence (2021). https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9340578
 - Ahn, Sungsoo, et al. "Variational information distillation for knowledge transfer." Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition. 2019. https://openaccess.thecvf.com/content_CVPR_2019/papers/Ahn_Variational_Information_Distillation_for_Knowledge_Transfer_CVPR_2019_paper.pdf 
-
